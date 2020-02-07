@@ -31,6 +31,7 @@ jobs:
         sudo apt-get install tk-dev python3.5-tk python3.5
         sudo rm /usr/bin/python
         sudo ln -s /usr/bin/python3.5 /usr/bin/python
+        # Add the path which packages are actually installed to `PATH`
         echo "::add-path::/home/runner/.local/bin"
     - name: Using cache
       uses: actions/cache@v1
@@ -39,26 +40,19 @@ jobs:
         key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements-dev.txt') }}
         restore-keys: |
           ${{ runner.os }}-pip-
-    # - name: Download dependencies
-    #   run: ./dev/download_travis_dependencies.sh
+    - name: Download dependencies
+      run: ./dev/download_travis_dependencies.sh
     - name: Install dependencies & Run tests
       run: |
-        # sudo apt-get install xclip python-pytest flake8
-        # export PATH="$PATH:/home/runner/.local/bin"
-        env | grep PATH
-        which pip
+        sudo apt-get install xclip
         python -m pip install --upgrade pip
-        which pip
-        sudo ls -al /usr/bin/*pip*
         python -m pip install setuptools
         python -m pip install wheel
         python -m pip install -r requirements-dev.txt
         python -m pip install pandas==$PANDAS_VERSION pyarrow==$PYARROW_VERSION
-        # pip install 'pyspark>=2.4'
+        pip install 'pyspark>=2.4'
         python -m pip list
-        which pytest
-        which flake8
         ./dev/lint-python
-        # ./dev/pytest
+        ./dev/pytest
     - name: Update Codecov
       run: bash <(curl -s https://codecov.io/bash)
