@@ -54,6 +54,7 @@ jobs:
     - name: Update Codecov
       run: bash <(curl -s https://codecov.io/bash)
 
+jobs:
   python-conda:
     runs-on: ubuntu-latest
     matrix:
