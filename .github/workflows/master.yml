@@ -32,7 +32,6 @@ jobs:
         sudo ln -s /usr/bin/python3.5 /usr/bin/python
         # Add the path which packages are actually installed to `PATH`
         echo "::add-path::/home/runner/.local/bin"
-        echo "::set-env name=SPARK_HOME::$HOME/.cache/spark-versions/spark-$SPARK_VERSION-bin-hadoop2.7"
     - name: Using cache
       uses: actions/cache@v1
       with:
@@ -45,6 +44,7 @@ jobs:
     - name: Install dependencies & run tests
       run: |
         ./dev/download_travis_dependencies.sh
+        echo "::set-env name=SPARK_HOME::$HOME/.cache/spark-versions/spark-$SPARK_VERSION-bin-hadoop2.7"
         sudo apt-get install xclip
         python -m pip install --upgrade pip
         python -m pip install -r requirements-dev.txt
