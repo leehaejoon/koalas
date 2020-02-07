@@ -43,7 +43,7 @@ jobs:
       run: ./dev/download_travis_dependencies.sh
     - name: Install dependencies & Run tests
       run: |
-        sudo apt-get install xclip python-pytest
+        sudo apt-get install xclip
         python3 -m pip install --upgrade pip
         pip install setuptools
         pip install wheel
