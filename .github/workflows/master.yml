@@ -50,7 +50,7 @@ jobs:
         python -m pip install wheel
         python -m pip install -r requirements-dev.txt
         python -m pip install pandas==$PANDAS_VERSION pyarrow==$PYARROW_VERSION
-        pip install 'pyspark>=2.4'
+        python -m pip install 'pyspark>=2.4'
         python -m pip list
         ./dev/lint-python
         ./dev/pytest
