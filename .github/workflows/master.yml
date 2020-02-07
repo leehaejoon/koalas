@@ -148,6 +148,7 @@ jobs:
         which conda
         which python
         conda env list
+        conda init bash
         conda activate test-environment
         ./dev/lint-python
     - name: Run test
@@ -155,6 +156,7 @@ jobs:
         which conda
         which python
         conda env list
+        conda init bash
         conda activate test-environment
         ./dev/pytest
     - name: Update Codecov
