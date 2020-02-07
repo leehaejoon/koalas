@@ -11,21 +11,22 @@ on:
 jobs:
   python:
     runs-on: ubuntu-latest
-    matrix:
-      python-version: [3.5, 3.6, 3.7]
-      include:
-        - python-version: 3.5
-          spark-version: 2.3.4
-          pandas-version: 0.23.4
-          pyarrow-version: 0.10.0
-        - python-version: 3.6
-          spark-version: 2.4.4
-          pandas-version: 0.24.2
-          pyarrow-version: 0.13.0
-        - python-version: 3.7
-          spark-version: 2.4.4
-          pandas-version: 0.25.3
-          pyarrow-version: 0.14.1
+    strategy:
+      matrix:
+        python-version: [3.5, 3.6, 3.7]
+        include:
+          - python-version: 3.5
+            spark-version: 2.3.4
+            pandas-version: 0.23.4
+            pyarrow-version: 0.10.0
+          - python-version: 3.6
+            spark-version: 2.4.4
+            pandas-version: 0.24.2
+            pyarrow-version: 0.13.0
+          - python-version: 3.7
+            spark-version: 2.4.4
+            pandas-version: 0.25.3
+            pyarrow-version: 0.14.1
     env:
       PYTHON_VERSION: ${{ matrix.python-version }}
       SPARK_VERSION: ${{ matrix.spark-version }}
