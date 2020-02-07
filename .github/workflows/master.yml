@@ -49,6 +49,7 @@ jobs:
     - name: Install dependencies & Run tests
       run: |
         # sudo apt-get install xclip python-pytest flake8
+        env | grep PATH
         which pip
         python -m pip install --upgrade pip
         which pip
