@@ -33,7 +33,7 @@ jobs:
         sudo ln -s /usr/bin/python3.5 /usr/bin/python
         echo env before
         env | grep PATH
-        export PATH="$PATH:/home/runner/.local/bin"
+        echo "::add-path::/home/runner/.local/bin"
         echo env after
         env | grep PATH
         # /usr/bin/python3.5 -m ensurepip
