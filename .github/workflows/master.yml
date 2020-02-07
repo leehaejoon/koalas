@@ -143,7 +143,7 @@ jobs:
         conda list
         echo "::add-path::/home/runner/miniconda/condabin"
     - name: Linter
-      run: ./dev/download_travis_dependencies.sh
+      run: |
         export SPARK_HOME="$HOME/.cache/spark-versions/spark-$SPARK_VERSION-bin-hadoop2.7"
         which conda
         which python
@@ -151,6 +151,7 @@ jobs:
         conda activate test-environment
         ./dev/lint-python
     - name: Run test
+      run: |
         which conda
         which python
         conda env list
