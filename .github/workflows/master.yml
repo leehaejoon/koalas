@@ -28,7 +28,7 @@ jobs:
     - name: Setup Python 3.5
       run: |
         sudo add-apt-repository ppa:deadsnakes/ppa
-        sudo apt-get install tk-dev python3.5-tk python3.5
+        sudo apt-get install tk-dev python3.5-tk python3.5 python3-pip
         sudo rm /usr/bin/python
         sudo ln -s /usr/bin/python3.5 /usr/bin/python
         # /usr/bin/python3.5 -m ensurepip
@@ -44,16 +44,21 @@ jobs:
     - name: Install dependencies & Run tests
       run: |
         # sudo apt-get install xclip python-pytest flake8
+        which pip
         python -m pip install --upgrade pip
-        python -m pip install setuptools
-        python -m pip install wheel
-        python -m pip install -r requirements-dev.txt
-        python -m pip install pandas==$PANDAS_VERSION pyarrow==$PYARROW_VERSION
+        which pip
+        sudo ls -al /usr/bin/*pip*
+        pip install setuptools
+        pip install wheel
+        pip install -r requirements-dev.txt
+        pip install pandas==$PANDAS_VERSION pyarrow==$PYARROW_VERSION
         # pip install 'pyspark>=2.4'
-        python -m pip list
-        which pytest
-        which flake8
-        ./dev/lint-python
+        pip list
+        # which python
+        # which pip
+        # which pytest
+        # which flake8
+        # ./dev/lint-python
         # ./dev/pytest
     - name: Update Codecov
       run: bash <(curl -s https://codecov.io/bash)
