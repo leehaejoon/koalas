@@ -149,6 +149,7 @@ jobs:
         which python
         conda env list
         conda init bash
+        source /home/runner/.bashrc
         conda activate test-environment
         ./dev/lint-python
     - name: Run test
