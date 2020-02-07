@@ -28,9 +28,14 @@ jobs:
     - name: Setup Python 3.5
       run: |
         sudo add-apt-repository ppa:deadsnakes/ppa
-        sudo apt-get install tk-dev python3.5-tk python3.5 python3-pip
+        sudo apt-get install tk-dev python3.5-tk python3.5
         sudo rm /usr/bin/python
         sudo ln -s /usr/bin/python3.5 /usr/bin/python
+        echo env before
+        env | grep PATH
+        export PATH="$PATH:/home/runner/.local/bin"
+        echo env after
+        env | grep PATH
         # /usr/bin/python3.5 -m ensurepip
     - name: Using cache
       uses: actions/cache@v1
