@@ -147,10 +147,14 @@ jobs:
         export SPARK_HOME="$HOME/.cache/spark-versions/spark-$SPARK_VERSION-bin-hadoop2.7"
         which conda
         which python
+        conda env list
+        conda activate test-environment
         ./dev/lint-python
     - name: Run test
         which conda
         which python
+        conda env list
+        conda activate test-environment
         ./dev/pytest
     - name: Update Codecov
       run: |
