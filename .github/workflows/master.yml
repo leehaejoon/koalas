@@ -31,10 +31,10 @@ jobs:
         sudo apt-get install tk-dev python3.5-tk python3.5
         sudo rm /usr/bin/python
         sudo ln -s /usr/bin/python3.5 /usr/bin/python
-        echo env before
-        env | grep PATH
-        echo "::add-path::/home/runner/.local/bin"
-        echo env after
+        # echo env before
+        # env | grep PATH
+        # echo "::add-path::/home/runner/.local/bin"
+        # echo env after
         env | grep PATH
         # /usr/bin/python3.5 -m ensurepip
     - name: Using cache
@@ -49,6 +49,7 @@ jobs:
     - name: Install dependencies & Run tests
       run: |
         # sudo apt-get install xclip python-pytest flake8
+        export PATH="$PATH:/home/runner/.local/bin"
         env | grep PATH
         which pip
         python -m pip install --upgrade pip
