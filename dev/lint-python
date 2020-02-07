@@ -40,6 +40,12 @@ function compile_python_test {
     local COMPILE_STATUS=
     local COMPILE_REPORT=
 
+    echo ==============version check===================
+    which python
+    which pytest
+    which flake8
+    echo ==============version check===================
+
     if [[ ! "$1" ]]; then
         echo "No python files found!  Something is very wrong -- exiting."
         exit 1;
