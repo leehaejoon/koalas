@@ -41,7 +41,7 @@ jobs:
         echo "::add-path::/home/runner/.local/bin"
     - name: Install dependencies & run tests
       run: |
-        sudo ls -al /home/runner/.local/bin/
+        sudo ls -al /home/runner/.local/bin
         # ./dev/download_travis_dependencies.sh
         # sudo apt-get install xclip
         # python -m pip setuptools
