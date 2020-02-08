@@ -43,6 +43,7 @@ jobs:
       run: |
         ./dev/download_travis_dependencies.sh
         sudo apt-get install xclip
+        python -m pip install --upgrade pip
         python -m pip install -r requirements-dev.txt
         python -m pip install pandas==$PANDAS_VERSION pyarrow==$PYARROW_VERSION
         python -m pip list
