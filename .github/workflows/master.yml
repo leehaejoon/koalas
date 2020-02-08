@@ -68,6 +68,7 @@ jobs:
     env:
       SPARK_VERSION: 2.4.4
       DISPLAY: 0.0
+      QT_QPA_PLATFORM: offscreen
       KOALAS_USAGE_LOGGER: databricks.koalas.usage_logging.usage_logger
     steps:
     - uses: actions/checkout@v2
