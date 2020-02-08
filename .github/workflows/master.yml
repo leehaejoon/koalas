@@ -41,14 +41,14 @@ jobs:
         echo "::add-path::/home/runner/.local/bin"
     - name: Install dependencies & run tests
       run: |
+        which python
+        which pip
         # ./dev/download_travis_dependencies.sh
         # sudo apt-get install xclip
-        env
-        which pip
-        # pip setuptools
-        # pip install -r requirements-dev.txt
-        # pip install pandas==$PANDAS_VERSION pyarrow==$PYARROW_VERSION
-        # pip list
+        # python -m pip setuptools
+        # python -m pip install -r requirements-dev.txt
+        # python -m pip install pandas==$PANDAS_VERSION pyarrow==$PYARROW_VERSION
+        # python -m pip list
         # export SPARK_HOME="$HOME/.cache/spark-versions/spark-$SPARK_VERSION-bin-hadoop2.7"
         # ./dev/lint-python
         # ./dev/pytest
